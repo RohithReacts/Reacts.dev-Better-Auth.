@@ -87,7 +87,7 @@ export function SignupForm({
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome to Reacts.dev</CardTitle>
-          <CardDescription>Signup with your Google account</CardDescription>
+          <CardDescription>Signup with your account</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -96,7 +96,7 @@ export function SignupForm({
                 <div className="flex flex-col gap-4">
                   <Button
                     variant="outline"
-                    className="w-full relative"
+                    className="w-full relative cursor-pointer"
                     type="button"
                     onClick={signInWithGoogle}
                   >
@@ -143,7 +143,7 @@ export function SignupForm({
                           <FormLabel>Email</FormLabel>
 
                           <FormControl>
-                            <Input placeholder="m@example.com" {...field} />
+                            <Input placeholder="helloworld@gmail.com" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -177,7 +177,7 @@ export function SignupForm({
                       </Link>
                     </div>
                   </div>
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="w-full cursor-pointer" disabled={isLoading}>
                     {isLoading ? (
                       <Loader2 className="size-4 animate-spin" />
                     ) : (

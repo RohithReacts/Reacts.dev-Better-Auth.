@@ -184,12 +184,12 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 
                   <Link
                     href="/forgot-password"
-                    className="ml-auto text-sm underline-offset-4 hover:underline"
+                    className="ml-auto text-sm"
                   >
                     Forgot your password?
                   </Link>
 
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="w-full cursor-pointer" disabled={isLoading}>
                     {isLoading ? (
                       <Loader2 className="size-4 animate-spin" />
                     ) : (
