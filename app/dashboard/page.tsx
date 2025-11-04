@@ -1,9 +1,7 @@
-
 import { Navbar } from "@/components/templates/navbar";
 import UsersTable from "@/components/users-table";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
-
 import {
   Dialog,
   DialogContent,
@@ -15,34 +13,43 @@ import {
 import UserForm from "@/components/forms/user-form";
 
 export default function DashboardPage() {
-
   return (
-    <div className="flex flex-col gap-4 max-w-7xl mx-auto p-4 md:p-24">
+    <div className="flex flex-col gap-6 max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-6 md:py-12">
       <Navbar />
-      <h1 className="text-2xl font-bold">Users</h1>
 
-      <div className="flex justify-end">
+      <div className="flex flex-col mt-15 sm:flex-row sm:items-center sm:justify-between gap-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+          Users
+        </h1>
+
         <Dialog>
           <DialogTrigger asChild>
-            <Button>
-              Add User <UserPlus className="size-4" />
+            <Button className="w-fit sm:w-auto ml-auto  flex items-center justify-center gap-2">
+              <span>Add User</span>
+              <UserPlus className="size-4" />
             </Button>
           </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Add User</DialogTitle>
-              <DialogDescription>
+
+          <DialogContent className="max-w-[70vw] sm:max-w-md rounded-xl p-4">
+            <DialogHeader className="space-y-2">
+              <DialogTitle className="text-xl text-center sm:text-xl font-semibold">
+                Add User
+              </DialogTitle>
+              <DialogDescription className="text-md text-center text-muted-foreground">
                 Add a new user to the database.
               </DialogDescription>
-
-              {/* Pass setOpen to UserForm */}
-              <UserForm/>
             </DialogHeader>
+
+            <div className="mt-4">
+              <UserForm />
+            </div>
           </DialogContent>
         </Dialog>
       </div>
 
-      <UsersTable />
+      <div className="w-full overflow-x-auto rounded-lg bg-background shadow-sm">
+        <UsersTable />
+      </div>
     </div>
   );
 }

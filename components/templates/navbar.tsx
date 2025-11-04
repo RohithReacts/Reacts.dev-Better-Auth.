@@ -19,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Logout } from "../logout";
+import { ModeToggle } from "./darkmode";
 
 interface NavDropdownItem {
   href: string;
@@ -141,6 +142,7 @@ export function Navbar(): React.JSX.Element {
 
           {/* Logout Button */}
           <Logout />
+          <ModeToggle/>
         </div>
 
         {/* Mobile Hamburger */}
@@ -217,6 +219,9 @@ export function Navbar(): React.JSX.Element {
 
               <li className="mt-2">
                 <Logout />
+              </li>
+              <li>
+                <ModeToggle/>
               </li>
             </ul>
           </motion.div>
