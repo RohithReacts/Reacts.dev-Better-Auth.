@@ -71,7 +71,7 @@ export function Navbar(): React.JSX.Element {
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-black/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo + Brand */}
-        <Link href="/" className="flex items-center space-x-2 group">
+        <Link href="/dashboard" className="flex items-center space-x-2 group">
           <div className="relative w-12 h-12">
             <Image
               src="/logo123.png"

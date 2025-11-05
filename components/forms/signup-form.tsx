@@ -32,6 +32,7 @@ import { Loader2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { PasswordInput, PasswordInputStrengthChecker } from "../ui/password-input";
 
 const formSchema = z.object({
   username: z.string().min(3),
@@ -159,11 +160,12 @@ export function SignupForm({
                           <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
-                              <Input
+                              <PasswordInput
                                 placeholder="********"
                                 {...field}
-                                type="password"
-                              />
+                              >
+                                <PasswordInputStrengthChecker/>
+                              </PasswordInput>
                             </FormControl>
                             <FormMessage />
                           </FormItem>

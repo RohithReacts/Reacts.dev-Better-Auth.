@@ -64,6 +64,7 @@ export default function UserForm({ user }: UserFormProps) {
       form.reset();
 
       toast.success(`User ${user ? "updated" : "added"} successfully`);
+                  form.reset();
       router.refresh();
       setIsLoading(false);
     } catch (error) {

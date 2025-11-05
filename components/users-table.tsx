@@ -2,7 +2,6 @@ import { getUsers } from "@/server/users";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -37,10 +36,8 @@ export default async function UsersTable() {
 
   return (
     <div className="w-full overflow-x-auto">
-      <Table className="min-w-full border border-border rounded-lg shadow-sm">
-        <TableCaption className="text-sm text-muted-foreground mt-2">
-          A list of registered users.
-        </TableCaption>
+      <Table className="max-w-full rounded-lg shadow-sm">
+        
 
         <TableHeader>
           <TableRow className="bg-muted/50">

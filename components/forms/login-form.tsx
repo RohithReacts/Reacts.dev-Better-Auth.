@@ -29,7 +29,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
-import { PasswordInput } from "../ui/password-input";
+import { PasswordInput, PasswordInputStrengthChecker } from "../ui/password-input";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -175,7 +175,10 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                             placeholder="********"
                           
                             {...field}
-                          />
+                          >
+                                <PasswordInputStrengthChecker />
+
+                          </PasswordInput>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
