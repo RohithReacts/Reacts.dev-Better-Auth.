@@ -20,7 +20,7 @@ export default async function UserInfo() {
           <Flex gap="3" align="center">
             <Avatar
               size="3"
-              src={image ?? undefined}
+              src={image}
               radius="full"
               fallback={name ? name.charAt(0).toUpperCase() : "U"}
             />
