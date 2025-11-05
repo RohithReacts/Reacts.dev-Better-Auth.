@@ -38,7 +38,7 @@ export function Navbar(): React.JSX.Element {
 
   const navItems = React.useMemo<NavItem[]>(
     () => [
-      { href: "#projects", label: "Projects" },
+    
       { href: "#about", label: "About" },
       { href: "#connect", label: "Connect" },
     ],
@@ -118,7 +118,7 @@ export function Navbar(): React.JSX.Element {
                         href={item.href}
                         className={`${navigationMenuTriggerStyle()} ${
                           activeSection === item.href
-                            ? "text-blue-600 dark:text-blue-400 font-semibold"
+                            ? ""
                             : "text-gray-800 dark:text-gray-200 cursor-pointer"
                         }`}
                       >

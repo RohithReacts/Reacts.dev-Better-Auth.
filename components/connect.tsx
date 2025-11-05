@@ -1,9 +1,9 @@
-"use client";
 
 import { EMAIL, MAP1, NUM, SOCIAL_LINKS } from "@/data/constants";
 import { Magnetic } from "@/components/ui/magnetic";
 import { Mail, MapIcon, Phone } from "lucide-react";
 import Link from "next/link";
+import UserInfo from "./userinfo";
 
 type SocialLink = {
   label: string;
@@ -37,7 +37,7 @@ const Connect: React.FC = () => {
   return (
     <section
       id="connect"
-      className="grid grid-cols-1 md:grid-cols-2 items-center gap-8"
+      className="grid grid-cols-1 mt-8 md:grid-cols-2 items-center gap-8"
     >
       {/* Left side (Contact info) */}
       <div>
@@ -86,7 +86,8 @@ const Connect: React.FC = () => {
         </div>
       </div>
 
-     
+                   <UserInfo/>
+
     </section>
   );
 };

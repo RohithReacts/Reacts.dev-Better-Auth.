@@ -12,11 +12,13 @@ import {
 } from "@/components/ui/dialog";
 import UserForm from "@/components/forms/user-form";
 import Connect from "@/components/connect";
+import AboutSection from "@/components/about";
 
 export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6 max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-6 md:py-12">
       <Navbar />
+
       <div className="flex flex-col mt-15 sm:flex-row sm:items-center sm:justify-between gap-4">
         <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
           Todo App
@@ -46,7 +48,12 @@ export default function DashboardPage() {
       <div className="w-full overflow-x-auto rounded-lg bg-background shadow-sm">
         <UsersTable />
       </div>
-      <Connect />
+      <div>
+        <AboutSection />
+      </div>
+      <div>
+        <Connect />
+      </div>
     </div>
   );
 }
