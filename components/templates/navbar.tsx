@@ -38,7 +38,6 @@ export function Navbar(): React.JSX.Element {
 
   const navItems = React.useMemo<NavItem[]>(
     () => [
-    
       { href: "#about", label: "About" },
       { href: "#connect", label: "Connect" },
     ],
@@ -77,7 +76,8 @@ export function Navbar(): React.JSX.Element {
               src="/logo123.png"
               alt="Reacts Logo"
               fill
-              className="object-contain rounded-full transition-transform duration-300 group-hover:rotate-35"/>
+              className="object-contain rounded-full transition-transform duration-300 group-hover:rotate-35"
+            />
           </div>
           <span className="text-xl font-semibold text-gray-900 dark:text-gray-100 transition-colors">
             Reacts.dev
@@ -141,8 +141,10 @@ export function Navbar(): React.JSX.Element {
           </NavigationMenu>
 
           {/* Logout Button */}
-          <Logout />
-          <ModeToggle/>
+          <Link href="/">
+            <Logout />
+          </Link>
+          <ModeToggle />
         </div>
 
         {/* Mobile Hamburger */}
@@ -221,7 +223,7 @@ export function Navbar(): React.JSX.Element {
                 <Logout />
               </li>
               <li>
-                <ModeToggle/>
+                <ModeToggle />
               </li>
             </ul>
           </motion.div>
