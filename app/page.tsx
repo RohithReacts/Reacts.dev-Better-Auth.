@@ -4,7 +4,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center gap-12 px-6 py-20 bg-white dark:bg-black sm:justify-between sm:px-12 sm:py-32">
+        
+        {/* Logo */}
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -13,64 +15,71 @@ export default function Home() {
           height={20}
           priority
         />
+
+        {/* Text Content */}
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+          <h1 className="text-2xl sm:text-3xl font-semibold leading-tight text-black dark:text-zinc-50">
+            To get started, edit the <span className="font-bold">page.tsx</span> file.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+
+          <p className="max-w-lg text-base sm:text-lg leading-7 text-zinc-600 dark:text-zinc-400">
+            Looking for a starting point? Check out{" "}
             <Link
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              href="https://vercel.com/templates"
               className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               Templates
             </Link>{" "}
             or the{" "}
             <Link
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              href="https://nextjs.org/learn"
               className="font-medium text-zinc-950 dark:text-zinc-50"
             >
-              Learning
-            </Link>{" "}
-            center.
+              Learning Center
+            </Link>.
           </p>
-          <h1 className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Better Auth The most comprehensive authentication framework for
-            TypeScript.
-          </h1>
+
+          <p className="max-w-md text-base sm:text-lg leading-7 text-zinc-600 dark:text-zinc-400">
+            <strong>Better Auth</strong>: The most comprehensive authentication framework
+            for TypeScript.
+          </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+
+        {/* Buttons */}
+        <div className="flex flex-col w-full gap-4 sm:flex-row sm:w-auto">
           <Link
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-black text-white px-6 transition hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+            href="https://vercel.com/new"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
               className="dark:invert"
               src="/vercel.svg"
-              alt="Vercel logomark"
+              alt="Vercel logo"
               width={16}
               height={16}
             />
-            Deploy Now
+            Deploy
           </Link>
+
           <Link
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            className="flex h-12 w-full items-center justify-center rounded-full border border-black/20 px-6 transition hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10"
+            href="https://nextjs.org/docs"
             target="_blank"
             rel="noopener noreferrer"
           >
             Documentation
           </Link>
+
           <Link
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+            className="flex h-12 w-full items-center justify-center rounded-full border border-black/20 px-6 transition hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10"
             href="/login"
-            rel="noopener noreferrer"
           >
             Login
           </Link>
         </div>
+
       </main>
     </div>
   );
