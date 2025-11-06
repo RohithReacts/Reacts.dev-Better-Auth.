@@ -44,7 +44,7 @@ export default function AboutMe() {
           Simple Starter Pack
         </h2>
         <p className="mt-4 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
-          This starter pack combines<span className="font-semibold">Better Auth</span> Shadcn UI
+          This starter pack combines<span className="font-semibold"> Better Auth</span> Shadcn UI
           , and Drizzle ORM with a serverless Neon Postgres database to provide a clean and modern development setup.
 
           <span className="font-medium">It includes essential features like</span>{" "}

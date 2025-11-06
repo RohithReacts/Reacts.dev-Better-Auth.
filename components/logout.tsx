@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button } from "./ui/button";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export function Logout() {
   const router = useRouter();
@@ -12,6 +13,7 @@ export function Logout() {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
+          toast.success("You’ve Logged Out")
           router.push("/login");
         },
       },

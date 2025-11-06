@@ -141,7 +141,7 @@ export function Navbar(): React.JSX.Element {
           </NavigationMenu>
 
           {/* Logout Button */}
-          <Link href="/">
+          <Link href="/login">
             <Logout />
           </Link>
           <ModeToggle />

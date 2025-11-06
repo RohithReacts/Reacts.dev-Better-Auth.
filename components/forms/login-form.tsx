@@ -7,9 +7,7 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
@@ -30,6 +28,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { PasswordInput, PasswordInputStrengthChecker } from "../ui/password-input";
+import Image from "next/image";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -41,7 +40,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  // ✅ Fetch last used login method (from authClient or localStorage)
+  // Fetch last login method
   useEffect(() => {
     const fetchLastMethod = async () => {
       try {
@@ -69,8 +68,6 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
         provider: "google",
         callbackURL: "/dashboard",
       });
-
-      // ✅ Save method locally
       localStorage.setItem("lastLoginMethod", "google");
     } catch {
       toast.error("Google sign-in failed");
@@ -83,10 +80,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 
     if (success) {
       toast.success(message as string);
-
-      // ✅ Save method locally
       localStorage.setItem("lastLoginMethod", "email");
-
       router.push("/dashboard");
     } else {
       toast.error(message as string);
@@ -96,21 +90,33 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
   }
 
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
+    <div className={cn("flex flex-col gap-6 text-black dark:text-neutral-200", className)} {...props}>
+      <Card className="border bg-white text-black shadow-sm dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-700">
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Login to your account</CardTitle>
-          <CardDescription>Enter your email below to login to your account</CardDescription>
+          <Link href="/login" className="flex justify-center items-center space-x-2 group">
+            <div className="relative w-12 h-12">
+              <Image
+                src="/logo123.png"
+                alt="Reacts Logo"
+                fill
+                className="object-contain rounded-full transition-transform duration-300 group-hover:rotate-35"
+              />
+            </div>
+            <span className="text-xl font-semibold transition-colors">
+              Reacts.dev
+            </span>
+          </Link>
         </CardHeader>
 
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid gap-6">
+
                 {/* Google Login */}
                 <Button
                   variant="outline"
-                  className="w-full relative cursor-pointer"
+                  className="w-fit flex justify-center items-center relative cursor-pointer border-neutral-300 dark:border-neutral-700 dark:text-neutral-200"
                   type="button"
                   onClick={signInWithGoogle}
                 >
@@ -124,23 +130,13 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                       fill="currentColor"
                     />
                   </svg>
-                  Login with Google
+
                   {lastMethod === "google" && (
-                    <Badge className="absolute right-2 text-[9px]">
-                      last used
-                    </Badge>
+                    <Badge className="absolute left-15 text-[9px]">last used</Badge>
                   )}
                 </Button>
 
-                {/* Divider */}
-                <div className="relative text-center text-sm">
-                  <span className="bg-card relative z-10 px-2 text-muted-foreground">
-                    Or continue with
-                  </span>
-                  <div className="absolute inset-0 top-1/2 border-t border-border z-0"></div>
-                </div>
-
-                {/* Email/Password Form */}
+                {/* Email / Password */}
                 <div className="grid gap-6">
                   <FormField
                     control={form.control}
@@ -148,16 +144,13 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                     render={({ field }) => (
                       <FormItem>
                         <div className="flex items-center justify-between">
-                          <FormLabel>Email</FormLabel>
+                          <FormLabel className="text-neutral-700 dark:text-neutral-300">Email</FormLabel>
                           {lastMethod === "email" && (
                             <Badge className="text-[9px]">last used</Badge>
                           )}
                         </div>
                         <FormControl>
-                          <Input
-                            placeholder="helloworld@gmail.com"
-                            {...field}
-                          />
+                          <Input placeholder="helloworld@gmail.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -169,15 +162,10 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel className="text-neutral-700 dark:text-neutral-300">Password</FormLabel>
                         <FormControl>
-                          <PasswordInput
-                            placeholder="********"
-                          
-                            {...field}
-                          >
-                                <PasswordInputStrengthChecker />
-
+                          <PasswordInput placeholder="********" {...field}>
+                            <PasswordInputStrengthChecker />
                           </PasswordInput>
                         </FormControl>
                         <FormMessage />
@@ -185,28 +173,18 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                     )}
                   />
 
-                  <Link
-                    href="/forgot-password"
-                    className="ml-auto text-sm"
-                  >
+                  <Link href="/forgot-password" className="ml-auto text-sm">
                     Forgot your password?
                   </Link>
 
                   <Button type="submit" className="w-full cursor-pointer" disabled={isLoading}>
-                    {isLoading ? (
-                      <Loader2 className="size-4 animate-spin" />
-                    ) : (
-                      "Login"
-                    )}
+                    {isLoading ? <Loader2 className="size-4 animate-spin" /> : "Login"}
                   </Button>
                 </div>
 
                 <div className="text-center text-sm">
                   Don&apos;t have an account?{" "}
-                  <Link
-                    href="/signup"
-                    
-                  >
+                  <Link href="/signup" >
                     Sign up
                   </Link>
                 </div>
@@ -215,8 +193,6 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
           </Form>
         </CardContent>
       </Card>
-
-     
     </div>
   );
 }

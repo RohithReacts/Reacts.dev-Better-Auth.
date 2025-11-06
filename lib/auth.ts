@@ -7,8 +7,9 @@ import { lastLoginMethod } from "better-auth/plugins"
 
 
 export const auth = betterAuth({
-  
 
+  
+  
   socialProviders: {
         google: { 
             clientId: process.env.GOOGLE_CLIENT_ID as string, 

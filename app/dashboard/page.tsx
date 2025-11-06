@@ -16,7 +16,8 @@ import AboutSection from "@/components/about";
 
 export default function DashboardPage() {
   return (
-    <div className="flex flex-col gap-6 max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-6 md:py-12">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+ <div className="flex flex-col gap-6 max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-6 md:py-12">
       <Navbar />
 
       <div className="flex flex-col mt-15 sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -55,5 +56,7 @@ export default function DashboardPage() {
         <Connect />
       </div>
     </div>
+    </div>
+   
   );
 }
