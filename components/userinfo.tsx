@@ -13,7 +13,7 @@ export default async function UserInfo() {
 
   const { name, email, image } = session.user
 
-  // ✅ normalize here — remove null
+  
   const avatarSrc: string | undefined = image ?? undefined
 
   return (
@@ -23,8 +23,8 @@ export default async function UserInfo() {
           <Flex gap="3" align="center">
             <Avatar
               size="3"
-              src={avatarSrc} // ✅ always string | undefined
-              radius="full"
+              src={avatarSrc} 
+            
               fallback={name ? name.charAt(0).toUpperCase() : "U"}
             />
             <Box>
