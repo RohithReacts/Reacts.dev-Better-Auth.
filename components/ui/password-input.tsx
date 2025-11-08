@@ -113,7 +113,7 @@ export function PasswordInputStrengthChecker() {
   }, [])
 
   function getLabel() {
-    if (deferredPassword.length === 0) return "Password strength"
+    if (deferredPassword.length === 0) return "strength"
     if (!optionsLoaded) return "Loading strength checker"
 
     const score = strengthResult.score
@@ -140,7 +140,7 @@ export function PasswordInputStrengthChecker() {
     <div className="space-y-0.5">
       <div
         role="progressbar"
-        aria-label="Password Strength"
+        aria-label="Strength"
         aria-valuenow={strengthResult.score}
         aria-valuemin={0}
         aria-valuemax={4}
