@@ -14,7 +14,6 @@ export default function AboutMe() {
       viewport={{ once: true }}
       className="flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-12 md:py-20"
     >
-      {/* Left: Profile Image */}
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
@@ -32,7 +31,6 @@ export default function AboutMe() {
         />
       </motion.div>
 
-      {/* Right: Text */}
       <motion.div
         initial={{ x: 50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}

@@ -1,9 +1,10 @@
-
 import { EMAIL, MAP1, NUM, SOCIAL_LINKS } from "@/data/constants";
 import { Magnetic } from "@/components/ui/magnetic";
 import { Mail, MapIcon, Phone } from "lucide-react";
 import Link from "next/link";
 import UserInfo from "./userinfo";
+
+
 
 type SocialLink = {
   label: string;
@@ -39,7 +40,6 @@ const Connect: React.FC = () => {
       id="connect"
       className="grid grid-cols-1 mt-8 md:grid-cols-2 items-center gap-8"
     >
-      {/* Left side (Contact info) */}
       <div>
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
         <p className="mb-3 text-zinc-600 dark:text-zinc-400">
@@ -86,8 +86,7 @@ const Connect: React.FC = () => {
         </div>
       </div>
 
-                   <UserInfo/>
-
+      <UserInfo />
     </section>
   );
 };
