@@ -13,6 +13,7 @@ import {
 import UserForm from "@/components/forms/user-form";
 import Connect from "@/components/connect";
 import AboutSection from "@/components/about";
+import Footer from "@/components/templates/footer";
 
 export default function DashboardPage() {
   return (
@@ -56,6 +57,7 @@ export default function DashboardPage() {
       <div>
         <Connect />
       </div>
+      <Footer/>
     </div>
     </div>
    
