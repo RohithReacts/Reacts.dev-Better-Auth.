@@ -104,7 +104,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 
              
 
-                {/* Email / Password */}
+              
                 <div className="grid gap-6">
                   <FormField
                     control={form.control}

@@ -38,7 +38,7 @@ const Connect: React.FC = () => {
   return (
     <section
       id="connect"
-      className="grid grid-cols-1 mt-8 md:grid-cols-2 items-center gap-8"
+      className="grid grid-cols-1 mx-15 md:grid-cols-2 items-center gap-8"
     >
       <div>
         <h3 className="mb-5 text-lg font-medium">Connect</h3>

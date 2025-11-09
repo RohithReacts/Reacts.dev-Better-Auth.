@@ -39,9 +39,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Theme>
-                            {children}
+            <div className="flex min-h-screen w-full flex-col font-(family-name:--font-inter-tight)">
+              <div className="relative mx-auto w-full w-screen-xl flex-1 px-4 pt-20">
+                
+                {children}
 
-              <Toaster />
+                <Toaster />
+              </div>
+            </div>
           </Theme>
         </ThemeProvider>
       </body>

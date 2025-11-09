@@ -3,8 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-3xl flex-col items-center gap-12 px-6 py-16 bg-white dark:bg-black sm:px-12 sm:py-28">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-smooth">
 
         {/* Logo */}
         <Image
@@ -79,7 +78,6 @@ export default function Home() {
           </Link>
         </div>
 
-      </main>
     </div>
   );
 }

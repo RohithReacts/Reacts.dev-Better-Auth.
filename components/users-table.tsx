@@ -44,7 +44,7 @@ export default async function UsersTable() {
           <TableRow className="bg-muted/50">
             <TableHead className="text-center font-semibold">Email</TableHead>
             <TableHead className="text-center font-semibold">Username</TableHead>
-            <TableHead className="text-center font-semibold">Created At</TableHead>
+            <TableHead className="text-center font-semibold">Date Time</TableHead>
             <TableHead className="text-center font-semibold">Actions</TableHead>
           </TableRow>
         </TableHeader>

@@ -2,17 +2,23 @@ import { LoginForm } from "@/components/forms/login-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Sign In',
-  description: 'Sign in to your account',
+  title: "Sign In",
+  description: "Sign in to your account",
 };
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-      <div className="flex w-full max-w-sm flex-col gap-6">
-      <LoginForm />
-
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="w-full max-w-sm px-4">
+        <LoginForm />
       </div>
     </div>
+
   );
 }
+
+
+
+
+   
+

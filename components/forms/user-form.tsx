@@ -1,7 +1,6 @@
-"use client"
+"use client";
 
 import { z } from "zod";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -45,7 +44,6 @@ export default function UserForm({ user }: UserFormProps) {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
 
-
     try {
       const userData = {
         ...values,
@@ -64,13 +62,12 @@ export default function UserForm({ user }: UserFormProps) {
       form.reset();
 
       toast.success(`User ${user ? "updated" : "added"} successfully`);
-                  form.reset();
+      form.reset();
       router.refresh();
       setIsLoading(false);
     } catch (error) {
       console.error(error);
       toast.error(`Failed to ${user ? "update" : "add"} user`);
-
     } finally {
       setIsLoading(false);
     }
@@ -78,48 +75,50 @@ export default function UserForm({ user }: UserFormProps) {
 
   return (
     <div className="mt-2">
-<Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Hello World" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Username</FormLabel>
+                <FormControl>
+                  <Input placeholder="Hello World" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="helloworld@gmail.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-<div className="flex justify-end pt-2">
-<Button  disabled={isLoading} type="submit">
-          {isLoading ? (
-            <Loader2 className="size-4 animate-spin" />
-          ) : (
-            `${user ? "Update" : "Add"} User`
-          )}
-        </Button>
-</div>
-        
-      </form>
-    </Form>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    
+                    placeholder="helloworld@gmail.com"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className="flex justify-end pt-2">
+            <Button disabled={isLoading} type="submit">
+              {isLoading ? (
+                <Loader2 className="size-4 animate-spin" />
+              ) : (
+                `${user ? "Update" : "Save"}`
+              )}
+            </Button>
+          </div>
+        </form>
+      </Form>
     </div>
-    
   );
 }
