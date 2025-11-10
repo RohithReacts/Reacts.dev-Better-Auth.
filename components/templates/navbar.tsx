@@ -219,9 +219,11 @@ export function Navbar(): React.JSX.Element {
                 </li>
               ))}
 
-              <li className="mt-2">
-                <Logout />
-              </li>
+             <li >
+  <Link href="/login">
+    <Logout />
+  </Link>
+</li>
               <li>
                 <ModeToggle />
               </li>
