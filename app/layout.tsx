@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Better Auth Starter",
+  title: "Rohithreacts",
   description:
     "Simple starter pack for Better Auth, with Shadcn, Drizzle, and Neon",
 };

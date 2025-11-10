@@ -167,7 +167,7 @@ export function PasswordInputStrengthChecker() {
           label
         ) : (
           <Tooltip>
-            <TooltipTrigger className="underline underline-offset-1">
+            <TooltipTrigger>
               {label}
             </TooltipTrigger>
             <TooltipContent side="bottom" sideOffset={4} className="text-base">
