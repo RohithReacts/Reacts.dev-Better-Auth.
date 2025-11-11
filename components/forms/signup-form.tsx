@@ -76,7 +76,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                 className="object-contain rounded-full transition-transform duration-300 group-hover:rotate-35"
               />
             </div>
-            <span className="text-xl font-semibold transition-colors">
+            <span className="text-2xl font-sans transition-colors">
               Reacts.dev
             </span>
           </Link>
@@ -139,7 +139,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
                     {isLoading ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
-                      "Sign Up"
+                      "Continue"
                     )}
                   </Button>
                 </div>

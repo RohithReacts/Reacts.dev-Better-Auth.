@@ -79,7 +79,7 @@ export function Navbar(): React.JSX.Element {
               className="object-contain rounded-full transition-transform duration-300 group-hover:rotate-35"
             />
           </div>
-          <span className="text-xl font-semibold text-gray-900 dark:text-gray-100 transition-colors">
+          <span className="text-xl font-sans text-gray-900 dark:text-gray-100 transition-colors">
             Reacts.dev
           </span>
         </Link>

@@ -100,7 +100,7 @@ export function LoginForm({
                 className="object-contain rounded-full transition-transform duration-300 group-hover:rotate-35"
               />
             </div>
-            <span className="text-xl font-semibold transition-colors">
+            <span className="text-2xl font-sans transition-colors">
               Reacts.dev
             </span>
           </Link>
@@ -170,7 +170,7 @@ export function LoginForm({
                     {isLoading ? (
                       <Loader2 className="size-4 animate-spin" />
                     ) : (
-                      "Login"
+                      "Continue"
                     )}
                   </Button>
                 </div>
