@@ -23,7 +23,6 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@radix-ui/themes";
 import { PasswordInput, PasswordInputStrengthChecker } from "../ui/password-input";
-import Image from "next/image";
 
 const formSchema = z.object({
   username: z.string().min(3),
@@ -67,19 +66,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
     <div className={cn("flex flex-col gap-6 text-black dark:text-neutral-200", className)} {...props}>
       <Card className="border bg-white text-black shadow-sm dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-700">
         <CardHeader className="text-center">
-          <Link href="/login" className="flex justify-center items-center space-x-2 group">
-            <div className="relative w-12 h-12">
-              <Image
-                src="/logo123.png"
-                alt="Reacts Logo"
-                fill
-                className="object-contain rounded-full transition-transform duration-300 group-hover:rotate-35"
-              />
-            </div>
-            <span className="text-2xl font-sans transition-colors">
-              Reacts.dev
-            </span>
-          </Link>
+         
         </CardHeader>
 
         <CardContent>

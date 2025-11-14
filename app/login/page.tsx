@@ -22,19 +22,17 @@ export default function LoginPage() {
           className="object-contain w-full m-auto max-w-xs sm:max-w-sm md:max-w-md"
         />
 
-        <h1 className="text-3xl sm:text-4xl font-bold m-auto">
+        <h1 className="text-4xl sm:text-5xl font-bold mx-auto">
           Welcome Back
         </h1>
 
-        <p className="text-muted-foreground text-base m-auto sm:text-lg max-w-md">
+        <p className="font-sans text-muted-foreground mx-auto sm:text-lg max-w-md">
           Sign in to continue your journey.
         </p>
       </div>
 
-      {/* Right Section */}
       <div className="w-full max-w-sm relative">
         
-        {/* Dark Mode Toggle */}
         <div
           className="
             fixed

@@ -1,5 +1,4 @@
 import UsersTable from "@/components/users-table";
-import { Button } from "@radix-ui/themes";
 import { UserPlus } from "lucide-react";
 import {
   Dialog,
@@ -15,6 +14,7 @@ import AboutSection from "@/components/about";
 import Footer from "@/components/templates/footer";
 import { Metadata } from "next";
 import { Header } from "@/components/templates/header";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -26,17 +26,14 @@ export default function DashboardPage() {
     <div>
       <Header />
       <div className="flex items-center justify-between px-6 py-4">
-  <h1 className="text-2xl sm:text-3xl font-sans font-medium">
+  <h1 className="text-2xl ml-20 sm:text-3xl font-sans font-semibold">
     Todo App
   </h1>
 
   <Dialog>
     <DialogTrigger asChild>
       <Button
-        color="gray"
-        variant="surface"
-        size="3"
-        className="flex items-center gap-2"
+        className="mr-20 flex items-center justify-center"
       >
         <span>Add User</span>
         <UserPlus className="size-5" />
@@ -58,7 +55,7 @@ export default function DashboardPage() {
     </DialogContent>
   </Dialog>
 </div>
-<div className="max-w-7xl mx-auto mt-8 flex items-center justify-center bg-background">
+<div className="max-w-5xl mx-auto mt-4 flex items-center justify-center bg-background">
   <UsersTable />
 </div>
 
