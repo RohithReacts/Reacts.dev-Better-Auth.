@@ -7,21 +7,18 @@ export default function Home() {
   return (
     <div className="relative mx-auto flex w-full max-w-7xl items-center justify-center">
       <DottedGlowBackground
-        className="pointer-events-none mask-radial-to-90% mask-radial-at-center opacity-20 dark:opacity-100"
+        className="pointer-events-none mask-radial-to-90% mask-radial-at-center dark:opacity-100"
         opacity={1}
-        gap={10}
-        radius={1.6}
-        colorLightVar="--color-neutral-500"
-        glowColorLightVar="--color-neutral-600"
-        colorDarkVar="--color-neutral-500"
-        glowColorDarkVar="--color-sky-800"
+        gap={25}
+        radius={1.8}
+        color="#2563eb"
+        glowColor="#60a5fa"
         backgroundOpacity={0}
-        speedMin={0.6}
-        speedMax={1.6}
+        speedMin={0.8}
+        speedMax={1.8}
         speedScale={1}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 scroll-smooth flex flex-col items-center sm:items-start gap-10">
-        {/* Logo */}
         <div className="flex justify-center sm:justify-start w-full">
           <Image
             className="dark:invert"
@@ -37,21 +34,21 @@ export default function Home() {
         <div className="flex flex-col gap-5 text-center sm:text-left sm:items-start">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-black dark:text-zinc-50">
             To get started, edit the <span className="font-bold">page.tsx</span>{" "}
-            file.
+            file
           </h1>
 
           <p className="max-w-lg text-sm sm:text-base md:text-lg leading-7 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point? Check out{" "}
             <Link
               href="https://vercel.com/templates"
-              className="font-medium text-zinc-950 dark:text-zinc-50 underline-offset-4 hover:underline"
+              className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               Templates
             </Link>{" "}
             or the{" "}
             <Link
               href="https://nextjs.org/learn"
-              className="font-medium text-zinc-950 dark:text-zinc-50 underline-offset-4 hover:underline"
+              className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               Learning Center
             </Link>

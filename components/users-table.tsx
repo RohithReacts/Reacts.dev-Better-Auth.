@@ -1,4 +1,3 @@
-
 import { getUsers } from "@/server/users";
 import {
   Table,
@@ -8,17 +7,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from "./ui/button";
-import { Pencil } from "lucide-react";
 import DeleteUserButton from "./delete-user-button";
-import UserForm from "./forms/user-form";
+import EditUserDialog from "./dashboard/edit-user-dialog";
 
 export default async function UsersTable() {
   const users = await getUsers();
@@ -38,13 +28,15 @@ export default async function UsersTable() {
   return (
     <div className="w-full overflow-x-auto">
       <Table className="max-w-full rounded-lg shadow-sm">
-        
-
         <TableHeader>
           <TableRow className="bg-muted/50">
             <TableHead className="text-center font-semibold">Email</TableHead>
-            <TableHead className="text-center font-semibold">Username</TableHead>
-            <TableHead className="text-center font-semibold">Date Time</TableHead>
+            <TableHead className="text-center font-semibold">
+              Username
+            </TableHead>
+            <TableHead className="text-center font-semibold">
+              Date Time
+            </TableHead>
             <TableHead className="text-center font-semibold">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -63,20 +55,7 @@ export default async function UsersTable() {
                 {user.createdAt ? formatDate(user.createdAt) : "—"}
               </TableCell>
               <TableCell className="text-center space-x-2">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button variant="ghost" size="icon">
-                      <Pencil className="size-4" />
-                    </Button>
-                  </DialogTrigger>
-
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>Edit User</DialogTitle>
-                      <UserForm user={user} />
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
+                <EditUserDialog user={user} />
 
                 <DeleteUserButton userId={user.id} />
               </TableCell>

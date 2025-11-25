@@ -44,8 +44,8 @@ type DottedGlowBackgroundProps = {
  */
 export const DottedGlowBackground = ({
   className,
-  gap = 12,
-  radius = 2,
+  gap = 10,
+  radius = 1.5,
   color = "rgba(0,0,0,0.7)",
   darkColor,
   glowColor = "rgba(0, 170, 255, 0.85)",
@@ -68,7 +68,7 @@ export const DottedGlowBackground = ({
   // Resolve CSS variable value from the container or root
   const resolveCssVariable = (
     el: Element,
-    variableName?: string,
+    variableName?: string
   ): string | null => {
     if (!variableName) return null;
     const normalized = variableName.startsWith("--")
@@ -175,7 +175,14 @@ export const DottedGlowBackground = ({
     resize();
 
     // Precompute dot metadata for a medium-sized grid and regenerate on resize
-    let dots: { x: number; y: number; phase: number; speed: number }[] = [];
+    let dots: {
+      x: number;
+      y: number;
+      phase: number;
+      speed: number;
+      vx: number;
+      vy: number;
+    }[] = [];
 
     const regenDots = () => {
       dots = [];
@@ -192,7 +199,10 @@ export const DottedGlowBackground = ({
           const phase = Math.random() * Math.PI * 2;
           const span = Math.max(max - min, 0);
           const speed = min + Math.random() * span; // configurable rad/s
-          dots.push({ x, y, phase, speed });
+          // Random velocity for floating effect
+          const vx = (Math.random() - 0.5) * 0.2; // -0.1 to 0.1 pixels per frame
+          const vy = (Math.random() - 0.5) * 0.2;
+          dots.push({ x, y, phase, speed, vx, vy });
         }
       }
     };
@@ -222,12 +232,12 @@ export const DottedGlowBackground = ({
           Math.min(width, height) * 0.1,
           width * 0.5,
           height * 0.5,
-          Math.max(width, height) * 0.7,
+          Math.max(width, height) * 0.7
         );
         grad.addColorStop(0, "rgba(0,0,0,0)");
         grad.addColorStop(
           1,
-          `rgba(0,0,0,${Math.min(Math.max(backgroundOpacity, 0), 1)})`,
+          `rgba(0,0,0,${Math.min(Math.max(backgroundOpacity, 0), 1)})`
         );
         ctx.fillStyle = grad as unknown as CanvasGradient;
         ctx.fillRect(0, 0, width, height);
@@ -240,6 +250,17 @@ export const DottedGlowBackground = ({
       const time = (now / 1000) * Math.max(speedScale, 0);
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
+
+        // Move dots
+        d.x += d.vx;
+        d.y += d.vy;
+
+        // Wrap around screen
+        if (d.x < -gap) d.x = width + gap;
+        if (d.x > width + gap) d.x = -gap;
+        if (d.y < -gap) d.y = height + gap;
+        if (d.y > height + gap) d.y = -gap;
+
         // Linear triangle wave 0..1..0 for linear glow/dim
         const mod = (time * d.speed + d.phase) % 2;
         const lin = mod < 1 ? mod : 2 - mod; // 0..1..0
@@ -256,9 +277,7 @@ export const DottedGlowBackground = ({
         }
 
         ctx.globalAlpha = a * opacity;
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, radius, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.fillRect(d.x - radius, d.y - radius, radius * 2, radius * 2);
       }
       ctx.restore();
 

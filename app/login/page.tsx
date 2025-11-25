@@ -1,5 +1,6 @@
 import { LoginForm } from "@/components/forms/login-form";
 import { ModeToggle } from "@/components/templates/darkmode";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -11,7 +12,18 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center px-6 py-10 gap-16">
-
+      <DottedGlowBackground
+        className="pointer-events-none mask-radial-to-90% mask-radial-at-center dark:opacity-100"
+        opacity={1}
+        gap={25}
+        radius={1.5}
+        color="#2563eb"
+        glowColor="#60a5fa"
+        backgroundOpacity={0}
+        speedMin={0.8}
+        speedMax={1.8}
+        speedScale={1}
+      />
       {/* Left Section */}
       <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-4">
         <Image
@@ -22,9 +34,7 @@ export default function LoginPage() {
           className="object-contain w-full m-auto max-w-xs sm:max-w-sm md:max-w-md"
         />
 
-        <h1 className="text-4xl sm:text-5xl font-bold mx-auto">
-          Welcome Back
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-bold mx-auto">Welcome Back</h1>
 
         <p className="font-sans text-muted-foreground mx-auto sm:text-lg max-w-md">
           Sign in to continue your journey.
@@ -32,7 +42,6 @@ export default function LoginPage() {
       </div>
 
       <div className="w-full max-w-sm relative">
-        
         <div
           className="
             fixed

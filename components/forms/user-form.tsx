@@ -28,9 +28,10 @@ import { User } from "@/db/schema";
 
 interface UserFormProps {
   user?: User;
+  onSuccess?: () => void;
 }
 
-export default function UserForm({ user }: UserFormProps) {
+export default function UserForm({ user, onSuccess }: UserFormProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -65,6 +66,9 @@ export default function UserForm({ user }: UserFormProps) {
       form.reset();
       router.refresh();
       setIsLoading(false);
+      if (onSuccess) {
+        onSuccess();
+      }
     } catch (error) {
       console.error(error);
       toast.error(`Failed to ${user ? "update" : "add"} user`);
@@ -98,11 +102,7 @@ export default function UserForm({ user }: UserFormProps) {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input
-                    
-                    placeholder="helloworld@gmail.com"
-                    {...field}
-                  />
+                  <Input placeholder="helloworld@gmail.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
